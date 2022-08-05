@@ -55,11 +55,11 @@ class Umpire {
 	public void getPlayerNum() {
 		Scanner scn = new Scanner(System.in);
 		System.out.println("Enter Number of Players (between 2 and 50): ");
-		while (numOfPlayer > 50 || numOfPlayer <= 1) {
+		do {
 			numOfPlayer = scn.nextInt();
 			if (numOfPlayer > 50 || numOfPlayer <= 1)
 				System.out.println("Range should be between 2 and 50. Please try again!");
-		}
+		} while (numOfPlayer > 50 || numOfPlayer <= 1);
 		for (int i = 0; i < playerArray.length; i++) { // instantiate each element
 			playerArray[i] = new Player();
 		}
@@ -92,10 +92,16 @@ public class TheGuessGame {
 
 	public static void main(String[] args) {
 		Umpire u = new Umpire();
-		u.getGuesserNum();
-		u.getPlayerNum();
-		u.compareNums();
-
+		char c = 'y';
+		Scanner scn = new Scanner(System.in);
+		do {
+			u.getGuesserNum();
+			u.getPlayerNum();
+			u.compareNums();
+			System.out.println("Do you want to continue (Y/N)?");
+			c = scn.next().charAt(0);
+		} while (c == 'y');
+		System.out.println("Bye :)");
 	}
 
 }
