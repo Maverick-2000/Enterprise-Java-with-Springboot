@@ -15,7 +15,7 @@ public class Question3 {
         char[] strArr1 = inputString1.toLowerCase().toCharArray();
         char[] strArr2 = inputString2.toLowerCase().toCharArray();
         if (strArr1.length != strArr2.length)
-            System.out.println("Not Anagrams.");
+            isAnagram = false;
         else {
             Arrays.sort(strArr1);
             Arrays.sort(strArr2);
